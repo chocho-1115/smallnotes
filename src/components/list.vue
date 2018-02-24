@@ -33,6 +33,7 @@ export default {
     // console.log(this.$route.params.id)
     this.lists = {
       '0': [
+        {content: 'ifconfig'},
         {content: 'soul'},
         {content: 'gray'},
         {content: 'girl'},
