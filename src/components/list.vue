@@ -1,6 +1,6 @@
 <template>
   <ul class='list'>
-    <li v-for='(item) in lists[index]' :key='item'>{{ item.content }}</li>
+    <li v-for='(item, index) in lists[listsIndex]' :key='index'>{{ item.content }}</li>
   </ul>
 </template>
 
@@ -9,7 +9,7 @@ export default {
   name: 'list',
   data () {
     return {
-      index: this.$route.params.id || 0,
+      listsIndex: this.$route.params.id || 0,
       lists: {}
     }
   },
@@ -22,7 +22,7 @@ export default {
   },
   // 在当前路由改变，但是该组件被复用时调用
   beforeRouteUpdate (to, from, next) {
-    this.index = to.params.id
+    this.listsIndex = to.params.id
     next()
   },
   // 离开当前路由的时候 调用该钩子

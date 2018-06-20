@@ -2,7 +2,7 @@
   <div id="header" class="header">
 
       <h1 class="logo" to='/'>SN</h1>
-      <ul class='menu' id='menu'>
+      <ul class='navbar' id='navbar'>
         <router-link tag='li' v-for='(item) in colorList' v-if='!item.hidden' :to='{name:"list",params:{id:item.id}}' :key="item.id">
           <span class="icon" :style='{backgroundColor:item.color}'></span>
         </router-link>
@@ -21,7 +21,7 @@
 
 // Vue.use(VueResource) // 这个一定要加上，指的是调用vue-resource.js
 export default {
-  name: 'menu', // div的id
+  name: 'navbar', // div的id
   data () {
     return {
       colorList: []
@@ -50,14 +50,10 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .header{position:fixed;left:0;top:0;width:80px;height:100%;z-index:2;background:#235F93;}
-
 .header .logo{color:#fff;}
 .header li{cursor:pointer;height:80px;line-height:80px;background-size: 100% 100%;font-size:32px;color:#fff; white-space:nowrap;}
 .header li.in,
 .header li:hover{background:#145892;}
-
-.header .menu li .icon{width:15px;height:15px;display:inline-block;border-radius:1000px;}
-
+.header .navbar li .icon{width:15px;height:15px;display:inline-block;border-radius:1000px;}
 .header .tool{position:absolute;left:0;bottom:0;width:100%;}
-
 </style>
