@@ -1,6 +1,9 @@
 <template>
   <ul class='list'>
-    <li v-for='(item, index) in lists[listsIndex]' :key='index'>{{ item.content }}</li>
+    <li v-for='(item, index) in lists[listsIndex]' :key='index' class='rela'>
+      {{ item.content }}
+      <span class="abso close show" v-on:click='remove($event,index)'>×</span>
+    </li>
   </ul>
 </template>
 
@@ -50,12 +53,21 @@ export default {
         {content: '第二个notes'}
       ]
     }
+  },
+  methods: {
+    // 参数是子组件传过来的数据
+    remove (e, index) {
+      console.log(index)
+      console.log(this.$(e.currentTarget).hasClass('show'))
+      this.lists[this.listsIndex].splice(index, 1)
+    }
   }
 }
 </script>
 
 <style scoped>
-.main{font-size:50px;padding-left:80px;}
-.list{overflow:hidden;color:#373737;font-size:20px;}
-.list li{float:left;padding:0 25px;background:#F5F5F5;height:35px;line-height:35px;border:1px solid #E5E5E5;margin-right:30px;margin-bottom:24px;}
+.list{overflow:hidden;color:#373737;font-size:22px;}
+.list li{overflow:hidden;float:left;padding:0 25px;background:#F5F5F5;min-width:50px;height:50px;line-height:50px;border:1px solid #E5E5E5;margin-right:30px;margin-bottom:24px;text-align:center;}
+.list li .close{width:50px;height:50px;line-height:50px;right:-50px;top:0;background:rgba(200,0,0,.8);color:#fff;cursor:pointer;}
+.list li .close.show{right:0;}
 </style>

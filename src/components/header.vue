@@ -52,7 +52,7 @@ export default {
 .header{position:fixed;left:0;top:0;width:80px;height:100%;z-index:2;background:#235F93;}
 .header .logo{color:#fff;}
 .header li{cursor:pointer;height:80px;line-height:80px;background-size: 100% 100%;font-size:32px;color:#fff; white-space:nowrap;}
-.header li.in,
+.header li.active,
 .header li:hover{background:#145892;}
 .header .navbar li .icon{width:15px;height:15px;display:inline-block;border-radius:1000px;}
 .header .tool{position:absolute;left:0;bottom:0;width:100%;}

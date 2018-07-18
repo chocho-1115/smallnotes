@@ -6,6 +6,8 @@ import add from '@/components/add'
 Vue.use(Router)
 
 const R = new Router({
+  linkActiveClass: 'active',
+  linkExactActiveClass: 'active',
   routes: [
     {
       path: '/',
